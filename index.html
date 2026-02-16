@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículos de Limpieza Toto - Distribuidora Familiar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .bg-ocean-50 { background-color: #f0f7ff; }
+        .bg-ocean-100 { background-color: #e0effe; }
+        .bg-ocean-600 { background-color: #2563eb; }
+        .bg-ocean-900 { background-color: #1e3a8a; }
+        .text-ocean-900 { color: #1e3a8a; }
+        .border-ocean-100 { border-color: #e0effe; }
+
+        .product-card {
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px -10px rgba(30, 58, 138, 0.15);
+        }
+
+        .whatsapp-btn {
+            background-color: #25d366;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128c7e;
+            transform: scale(1.02);
+        }
+
+        .img-fallback {
+            background: linear-gradient(135deg, #e0effe 0%, #ffffff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #1e3a8a;
+            font-size: 3rem;
+        }
+
+        #product-grid {
+            transition: opacity 0.3s ease;
+        }
+
+        .map-container {
+            filter: grayscale(0.2) contrast(1.1);
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/5492213571399" class="fixed bottom-8 right-8 z-[100] whatsapp-btn text-white p-4 rounded-full shadow-2xl flex items-center justify-center group">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-300 font-bold whitespace-nowrap">
+            Consultar ahora
+        </span>
+    </a>
+
+    <!-- Navegación Superior -->
+    <nav class="bg-white/90 backdrop-blur-lg border-b border-ocean-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-ocean-600 p-2.5 rounded-xl shadow-lg shadow-blue-200">
+                        <i class="fas fa-droplet text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl md:text-2xl font-extrabold text-ocean-900 tracking-tight leading-none">Limpieza Toto</h1>
+                        <span class="text-[10px] text-blue-500 uppercase font-bold tracking-widest">Distribuidora La Plata</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-sm font-bold text-slate-600 hover:text-ocean-600 transition">Inicio</a>
+                    <a href="#productos" class="text-sm font-bold text-slate-600 hover:text-ocean-600 transition">Productos</a>
+                    <a href="#contacto" class="text-sm font-bold text-slate-600 hover:text-ocean-600 transition">Ubicación</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner Principal -->
+    <header id="inicio" class="relative bg-ocean-900 py-24 md:py-32 overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-blue-400 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-cyan-400 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="max-w-2xl text-center md:text-left">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-500/30">
+                    Ruta 11 y 98, La Plata
+                </span>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                    Limpieza de Calidad <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Directo a tu Hogar.</span>
+                </h2>
+                <div class="flex items-center gap-3 mb-10 text-blue-200 font-bold">
+                    <i class="fas fa-truck-fast text-2xl animate-pulse"></i>
+                    <p class="text-lg">¡HACEMOS ENVÍOS A DOMICILIO!</p>
+                </div>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="#productos" class="bg-white text-ocean-900 px-8 py-4 rounded-xl font-extrabold shadow-xl hover:bg-blue-50 transition-all">
+                        Ver Productos
+                    </a>
+                    <a href="https://wa.me/5492213571399" class="bg-blue-600/30 text-white border border-blue-400/30 px-8 py-4 rounded-xl font-extrabold backdrop-blur hover:bg-blue-600/50 transition-all">
+                        Hacer Pedido
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filtros Rápidos -->
+    <section class="bg-white border-b border-ocean-100 py-8">
+        <div class="max-w-7xl mx-auto px-4 overflow-x-auto">
+            <div class="flex md:justify-center gap-3 min-w-max">
+                <button onclick="filterProducts('todos')" class="filter-btn active bg-ocean-900 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-blue-200">Todos</button>
+                <button onclick="filterProducts('jabones')" class="filter-btn bg-ocean-50 text-ocean-900 hover:bg-ocean-100 px-6 py-2.5 rounded-full text-sm font-bold border border-ocean-100">Jabones</button>
+                <button onclick="filterProducts('papeles')" class="filter-btn bg-ocean-50 text-ocean-900 hover:bg-ocean-100 px-6 py-2.5 rounded-full text-sm font-bold border border-ocean-100">Papelería</button>
+                <button onclick="filterProducts('suavizantes')" class="filter-btn bg-ocean-50 text-ocean-900 hover:bg-ocean-100 px-6 py-2.5 rounded-full text-sm font-bold border border-ocean-100">Suavizantes</button>
+                <button onclick="filterProducts('esponjas')" class="filter-btn bg-ocean-50 text-ocean-900 hover:bg-ocean-100 px-6 py-2.5 rounded-full text-sm font-bold border border-ocean-100">Accesorios</button>
+                <button onclick="filterProducts('desinfectantes')" class="filter-btn bg-ocean-50 text-ocean-900 hover:bg-ocean-100 px-6 py-2.5 rounded-full text-sm font-bold border border-ocean-100">Desinfectantes</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grilla de Productos -->
+    <main id="productos" class="max-w-7xl mx-auto py-20 px-4">
+        <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+                <h3 id="category-title" class="text-3xl font-extrabold text-ocean-900">Nuestros Insumos</h3>
+                <p class="text-slate-500 mt-2 font-medium italic text-sm">Consultar stock y envíos por WhatsApp</p>
+            </div>
+            <div class="bg-blue-50 border border-blue-100 p-4 rounded-2xl flex items-center gap-4">
+                <i class="fas fa-info-circle text-blue-500 text-xl"></i>
+                <p class="text-sm font-bold text-blue-800">¿No encontrás lo que buscás? <br><span class="font-normal">Consultanos por WhatsApp por cualquier producto.</span></p>
+            </div>
+        </div>
+
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Renderizado JS -->
+        </div>
+    </main>
+
+    <!-- Sección Contacto y Mapa -->
+    <section id="contacto" class="bg-ocean-50 py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-4xl font-extrabold text-ocean-900 mb-6">Información de Contacto</h3>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        Contamos con stock permanente y realizamos <strong>envíos a domicilio</strong> en La Plata para tu mayor comodidad.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center text-ocean-600">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500 font-bold uppercase tracking-tighter">Domicilio</p>
+                                <p class="text-lg font-bold text-ocean-900">Ruta 11 y 98, La Plata</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center text-ocean-600">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500 font-bold uppercase tracking-tighter">Teléfono / WhatsApp</p>
+                                <p class="text-lg font-bold text-ocean-900">221 357-1399</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center text-ocean-600">
+                                <i class="fas fa-truck text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500 font-bold uppercase tracking-tighter">Servicio</p>
+                                <p class="text-lg font-bold text-ocean-900">Envíos a Domicilio</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/5492213571399" class="mt-10 inline-flex items-center gap-3 bg-ocean-900 text-white px-8 py-4 rounded-2xl font-bold shadow-xl hover:bg-ocean-600 transition-all">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        Consultar por todos los productos
+                    </a>
+                </div>
+
+                <div class="map-container shadow-2xl h-[450px]">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3270.218556636737!2d-57.893144!3d-34.951059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDU3JzA0LjEiUyA1N8KwNTMnMzUuMyJX!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-ocean-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6">
+                <i class="fas fa-hand-sparkles text-blue-400 text-2xl"></i>
+                <span class="text-2xl font-bold">Limpieza Toto</span>
+            </div>
+            <p class="text-blue-200/50 text-sm mb-2">Ruta 11 y 98 - La Plata, Buenos Aires</p>
+            <p class="text-blue-300 font-bold mb-6">📞 221 357-1399</p>
+            <div class="text-blue-200/20 text-[10px] uppercase tracking-[0.3em]">
+                &copy; 2024 Artículos de Limpieza Toto | Envíos a Domicilio
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const products = [
+            // JABONES
+            { id: 1, name: "Jabón Líquido 'Ariel' Alternativo (5L)", category: "jabones", icon: "soap", img: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&w=400&q=80" },
+            { id: 2, name: "Jabón Líquido 'Skip' Premium (5L)", category: "jabones", icon: "soap", img: "https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=400&q=80" },
+            { id: 3, name: "Detergente Tipo Magistral (5L)", category: "jabones", icon: "bottle-droplet", img: "https://images.unsplash.com/photo-1622467820347-380d0d826a7a?auto=format&fit=crop&w=400&q=80" },
+            
+            // PAPELES
+            { id: 12, name: "Papel Higiénico (Pack x4 rollos)", category: "papeles", icon: "toilet-paper", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" },
+            { id: 13, name: "Rollos de Cocina (Pack x3)", category: "papeles", icon: "scroll", img: "https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&w=400&q=80" },
+            { id: 14, name: "Servilletas de Papel", category: "papeles", icon: "note-sticky", img: "https://images.unsplash.com/photo-1528740561666-dc2479da08ad?auto=format&fit=crop&w=400&q=80" },
+
+            // SUAVIZANTES
+            { id: 4, name: "Suavizante Vivere Azul (5L)", category: "suavizantes", icon: "wind", img: "https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?auto=format&fit=crop&w=400&q=80" },
+            { id: 5, name: "Suavizante Confort Rosas (5L)", category: "suavizantes", icon: "fan", img: "https://images.unsplash.com/photo-1583947582991-628f237f375c?auto=format&fit=crop&w=400&q=80" },
+            
+            // DESINFECTANTES
+            { id: 6, name: "Lavandina Concentrada (5L)", category: "desinfectantes", icon: "shield-virus", img: "https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&w=400&q=80" },
+            { id: 7, name: "Desinfectante Pino (5L)", category: "desinfectantes", icon: "tree", img: "https://images.unsplash.com/photo-1585832770485-e68a5dbfad52?auto=format&fit=crop&w=400&q=80" },
+            { id: 8, name: "Desengrasante Industrial (5L)", category: "desinfectantes", icon: "fire-extinguisher", img: "https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&w=400&q=80" },
+            
+            // ESPONJAS Y OTROS
+            { id: 9, name: "Esponja Doble Cara (Pack x3)", category: "esponjas", icon: "box", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" },
+            { id: 10, name: "Trapo de Piso Blanco Algodón", category: "esponjas", icon: "scroll", img: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=400&q=80" },
+            { id: 11, name: "Paño Microfibra Premium", category: "esponjas", icon: "layer-group", img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=400&q=80" }
+        ];
+
+        function handleImageError(imgElement, icon) {
+            const container = imgElement.parentElement;
+            container.innerHTML = `
+                <div class="img-fallback w-full h-full">
+                    <i class="fas fa-${icon}"></i>
+                    <span class="text-xs font-bold mt-2 opacity-50 uppercase tracking-widest">Insumos Toto</span>
+                </div>
+            `;
+        }
+
+        function renderProducts(filter = 'todos') {
+            const grid = document.getElementById('product-grid');
+            grid.style.opacity = '0';
+            
+            setTimeout(() => {
+                grid.innerHTML = '';
+                const filtered = filter === 'todos' ? products : products.filter(p => p.category === filter);
+
+                filtered.forEach(p => {
+                    grid.innerHTML += `
+                        <div class="bg-white rounded-[2rem] overflow-hidden product-card border border-ocean-100 flex flex-col h-full shadow-sm">
+                            <div class="relative overflow-hidden aspect-square bg-ocean-50">
+                                <img src="${p.img}" alt="${p.name}" 
+                                     class="w-full h-full object-cover transition duration-500 hover:scale-110" 
+                                     onerror="handleImageError(this, '${p.icon}')">
+                                <div class="absolute top-4 left-4">
+                                    <span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black text-ocean-900 uppercase tracking-tighter shadow-sm">
+                                        ${p.category}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow text-center">
+                                <h4 class="text-base font-bold text-slate-800 mb-6 leading-tight flex-grow">${p.name}</h4>
+                                <a href="https://wa.me/5492213571399?text=Hola Toto! Me gustaría consultar por: ${p.name}" 
+                                   class="whatsapp-btn text-white w-full py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 text-sm shadow-lg shadow-green-100">
+                                    <i class="fab fa-whatsapp text-lg"></i>
+                                    Consultar
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                });
+                grid.style.opacity = '1';
+            }, 300);
+        }
+
+        function filterProducts(cat) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-ocean-900', 'text-white');
+                btn.classList.add('bg-ocean-50', 'text-ocean-900');
+            });
+
+            const activeBtn = Array.from(buttons).find(b => b.getAttribute('onclick').includes(`'${cat}'`));
+            if(activeBtn) {
+                activeBtn.classList.remove('bg-ocean-50', 'text-ocean-900');
+                activeBtn.classList.add('bg-ocean-900', 'text-white');
+            }
+
+            renderProducts(cat);
+            if(window.innerWidth < 768) {
+                document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        window.onload = () => renderProducts();
+    </script>
+</body>
+</html>
